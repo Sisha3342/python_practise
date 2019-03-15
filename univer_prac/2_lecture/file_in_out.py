@@ -1,4 +1,4 @@
-from python_practise5 import tribon_list
+from tribon_list_with_yield import tribon_list #is it correct import?
 
 from_file = open(input(), "r")
 
