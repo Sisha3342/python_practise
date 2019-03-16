@@ -4,3 +4,4 @@ def tribon_list(n):
         yield a
         a, b, c = b, c, a + b + c
 #print(list1 = tribon_list(n)) ???
+#if __name__ == '__main__': 
