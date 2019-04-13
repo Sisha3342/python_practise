@@ -30,3 +30,4 @@ for i in info_file:
         eleven_form_rating.append(rating)
 
 print(mean(nine_form_rating), mean(ten_form_rating), mean(eleven_form_rating))
+info_file.close()
