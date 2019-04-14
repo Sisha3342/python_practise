@@ -3,10 +3,10 @@ class Contestant:
     name = ''
     rating = 0
 
-    def __init__(self, sur, n, rat):
-        self.name = n
-        self.surname = sur
-        self.rating = rat
+    def __init__(self, surname, name, rating):
+        self.name = name
+        self.surname = surname
+        self.rating = rating
 
 
 inp_file = open('input.txt', 'r', encoding='utf8')
@@ -20,4 +20,6 @@ out_file = open('output.txt', 'w', encoding='utf8')
 
 for i in contestants_list:
     print(i.surname, i.name, i.rating, file=out_file)
+
 inp_file.close()
+out_file.close()
