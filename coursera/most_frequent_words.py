@@ -7,3 +7,4 @@ word_list = [(value, key) for key, value in myDict.items()]
 word_list.sort(key=lambda x: (-x[0], x[1]))
 for info in word_list:
     print(info[1])
+open_file.close()
