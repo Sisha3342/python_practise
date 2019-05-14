@@ -34,5 +34,6 @@ numbers = set()
 open_file = open('input.txt', 'r', encoding='utf-8')
 for line in open_file:
     numbers |= set(map(int, line.split()))
+open_file.close()
 for number in sorted(numbers):
     print(make_short_format(number, take_simple_divisors(number)))
