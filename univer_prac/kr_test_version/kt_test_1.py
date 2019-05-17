@@ -15,4 +15,4 @@ str_list = [string.rstrip('\n') for string in open_file if string != '\n']
 str_list_with_value = list(map(lambda s: (s, string_value(s)), str_list))
 open_file.close()
 for string in sorted(str_list_with_value, key=lambda s: s[1], reverse=True):
-    print('"' + string[0] + '" =', string[1])
+    print('"', string[0], '" = ', string[1], sep='')
