@@ -1,24 +1,17 @@
 vowels = 'aeiouy'
 
 
-def take_sum(string):
-    sum_ = 0
-    for c in string:
-        sum_ += ord(c) - 96
-    return sum_
-
-
 def longest_streak(string):
-    j, i, max_ = 0, 0, 0
+    i, max_ = 0, 0
     length = len(string)
     while i < length:
-        while j < length and string[j] in vowels:
-            j += 1
-        i = j
-        while i < length and string[i] not in vowels:
+        sum_ = 0
+        while i < length and string[i] in vowels:
             i += 1
-        max_ = max(take_sum(string[j:i]), max_)
-        j = i
+        while i < length and string[i] not in vowels:
+            sum_ += ord(string[i]) - 96
+            i += 1
+        max_ = max(sum_, max_)
     return max_
 
 
