@@ -1,0 +1,22 @@
+def gcd(x, y):
+    if x == 1 or y == 1:
+        return 1
+    elif x % y == 0:
+        return y
+    elif y % x == 0:
+        return x
+    else:
+        return gcd(y, x % y)
+
+
+def reduce_fraction(m, n):
+    a = gcd(m, n)
+    if a == 1:
+        return m, n
+    else:
+        return reduce_fraction(m // a, n // a)
+
+
+a = int(input())
+b = int(input())
+print(*reduce_fraction(a, b))

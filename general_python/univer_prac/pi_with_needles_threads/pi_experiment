@@ -1,0 +1,27 @@
+from math import sin, pi, inf
+from random import uniform
+import pylab
+from matplotlib import mlab
+
+
+def pi_func(x, l):
+    hit_count = 0
+    for i in x:
+        h = uniform(0, l)
+        angle = uniform(0, pi)
+        if sin(angle) * l >= h:
+            hit_count += 1
+        if hit_count == 0:
+            yield inf
+        else:
+            yield 2 * i / hit_count
+
+
+x_minimum = 0
+x_maximum = 1000
+dx = 1
+x_coords = mlab.frange(x_minimum, x_maximum, dx)
+length = float(input())
+y_coords = [*pi_func(x_coords, length)]
+pylab.plot(x_coords, y_coords)
+pylab.show()
