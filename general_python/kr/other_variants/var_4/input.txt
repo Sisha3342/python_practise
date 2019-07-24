@@ -1,6 +1,0 @@
-abc def ghi
-moon sun
-alpha beta gamma
-python zodiacs strength
-def
-ghi abc
