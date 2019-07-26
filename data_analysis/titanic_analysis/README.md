@@ -10,7 +10,7 @@ https://github.com/Sisha3342/pydata-book/tree/2nd-edition/datasets/titanic
     - [x] concatenate dataframe from train.csv (*start_passengers_info*) and *last_passengers_info*
 - [ ] Visualisation
     - [x] Build a pie with **Survived** column (survived, didn't survive and unknown (np.NaN))
-    - [ ] Build a pie with males / females relation
+    - [x] Build a pie with survived males / females relation
     - [ ] Build a hist where: 
         1) x_axis - **Fare** (0-49; 50-99; 100 and more)
         2) y_axis - **Survived** (how many people with corresponding fare survived)

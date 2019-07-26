@@ -32,16 +32,29 @@ if __name__ == "__main__":
                                  ignore_index=True)
     passengers_final = passengers_final.set_index('PassengerId')
 
-    fig, axs = plt.subplots()
+    fig, axs = plt.subplots(2)
+
     # first graphic
     survived_count = np.nansum(passengers_final['Survived'], dtype=np.int)
     unknown_count = passengers_final['Survived'].isnull().sum()
     dead_count = passengers_final.index.size - survived_count - unknown_count
 
-    labels = np.array(['survived{}', 'dead{}', 'unknown{}'])
-    sizes = np.array([survived_count, dead_count, unknown_count])
-    patches, texts = axs.pie(sizes, colors=['green', 'red', 'grey'])
-    axs.legend(patches, make_labels(labels, sizes), loc='best')
-    axs.axis('equal')
-    axs.set_title('death rate')
+    labels_1 = ['survived{}', 'dead{}', 'unknown{}']
+    sizes_1 = np.array([survived_count, dead_count, unknown_count])
+    patches_1, texts_1 = axs[0].pie(sizes_1, colors=['green', 'red', 'grey'])
+    axs[0].legend(patches_1, make_labels(labels_1, sizes_1), loc='best')
+    axs[0].axis('equal')
+    axs[0].set_title('death rate')
+
+    # second graphic
+    males_survived = np.nansum(passengers_final.loc[passengers_final['Sex'] == 'male', 'Survived'],
+                               dtype=np.int)
+    females_survived = survived_count - males_survived
+
+    labels_2 = ['males{}', 'females{}']
+    sizes_2 = np.array([males_survived, females_survived])
+    patches_2, texts_2 = axs[1].pie(sizes_2, colors=['lightskyblue', 'lightcoral'])
+    axs[1].legend(patches_2, make_labels(labels_2, sizes_2), loc='best')
+    axs[1].axis('equal')
+    axs[1].set_title('survived males/females relation')
     plt.show()
