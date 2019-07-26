@@ -32,7 +32,7 @@ if __name__ == "__main__":
                                  ignore_index=True)
     passengers_final = passengers_final.set_index('PassengerId')
 
-    fig, axs = plt.subplots(2)
+    fig, axs = plt.subplots(3)
 
     # first graphic
     survived_count = np.nansum(passengers_final['Survived'], dtype=np.int)
@@ -57,4 +57,35 @@ if __name__ == "__main__":
     axs[1].legend(patches_2, make_labels(labels_2, sizes_2), loc='best')
     axs[1].axis('equal')
     axs[1].set_title('survived males/females relation')
+
+    # third graphic
+    mask_1 = (passengers_final['Fare'] >= 0) & (passengers_final['Fare'] < 50)
+    mask_2 = (passengers_final['Fare'] >= 50) & (passengers_final['Fare'] < 100)
+    mask_3 = passengers_final['Fare'] >= 100
+
+    low_fare_total = passengers_final[mask_1].index.size
+    low_fare_survived = np.nansum(passengers_final.loc[mask_1, 'Survived'], dtype=np.int)
+    medium_fare_total = passengers_final[mask_2].index.size
+    medium_fare_survived = np.nansum(passengers_final.loc[mask_2, 'Survived'], dtype=np.int)
+    high_fare_total = passengers_final[mask_3].index.size
+    high_fare_survived = np.nansum(passengers_final.loc[mask_3, 'Survived'], dtype=np.int)
+
+    labels_3 = ['0-50', '50-100', '100 and more']
+    values_3_survived = np.array([low_fare_survived, medium_fare_survived, high_fare_survived])
+    values_3_total = np.array([low_fare_total, medium_fare_total, high_fare_total])
+    total_bar = axs[2].bar(np.arange(3), values_3_total, 0.4, color='b', label='total')
+    survived_bar = axs[2].bar(np.arange(3) + 0.4, values_3_survived, 0.4, color='g', label='survived')
+
+    axs[2].set_xlabel('Fare')
+    axs[2].set_ylabel('people count')
+    axs[2].set_title('fare statistics')
+    axs[2].set_xticks(np.arange(3) + 0.2)
+    axs[2].set_xticklabels(labels_3)
+    axs[2].legend(loc='best')
+
+    for rect in total_bar + survived_bar:
+        height = rect.get_height()
+        axs[2].text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
+
+    plt.savefig('stats_analysis.png')
     plt.show()
