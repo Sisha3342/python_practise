@@ -1,5 +1,5 @@
 # Task
-- [ ] Read files from https://github.com/Sisha3342/pydata-book/tree/2nd-edition/datasets/movielens 
+- [x] Read files from https://github.com/Sisha3342/pydata-book/tree/2nd-edition/datasets/movielens 
 (**movies_dataframes.py**)
 
 - [ ] Analyse files separately
