@@ -1,13 +1,13 @@
 import pandas as pd
 
-movies = pandas.read_csv('https://raw.githubusercontent.com/Sisha3342/'
+movies = pd.read_csv('https://raw.githubusercontent.com/Sisha3342/'
                          'pydata-book/2nd-edition/datasets/movielens/movies.dat',
                          sep='::', names=['ID', 'Name', 'Genre'], index_col='ID',
                          engine='python')
 movies['Year'] = movies.Name.str[-5:-1]
 movies.Name = movies.Name.str.replace('\(\w+\)', '', regex=True)
 
-users = pandas.read_csv('https://raw.githubusercontent.com/Sisha3342/'
+users = pd.read_csv('https://raw.githubusercontent.com/Sisha3342/'
                         'pydata-book/2nd-edition/datasets/movielens/users.dat',
                         sep='::', names=['ID', 'Gender', 'Age', 'Occupation', 'Zip'],
                         index_col='ID', engine='python')
@@ -26,7 +26,7 @@ ages = {1: 'Under 18', 18: '18-24', 25: '25-34', 35: '35-44', 45: '45-49',
 users.eval('Age = Age.apply(@ages.get)', inplace=True)
 users.eval('Occupation = Occupation.apply(@occupations.get)', inplace=True)
 
-ratings = pandas.read_csv('https://raw.githubusercontent.com/Sisha3342/'
+ratings = pd.read_csv('https://raw.githubusercontent.com/Sisha3342/'
                           'pydata-book/2nd-edition/datasets/movielens/ratings.dat',
                           sep='::', names=['UserID', 'MovieID', 'Rating', 'Timestamp'],
                           engine='python')
