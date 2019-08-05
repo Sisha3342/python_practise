@@ -3,9 +3,9 @@
 (**movies_dataframes.py**)
 
 - [ ] Analyse files separately
-    - [ ] movies file (**movies_stats.py**)
-        - [ ] display the amount of films yearly
-        - [ ] display the most popular genres
+    - [x] movies file (**movies_stats.py**)
+        - [x] display the amount of films yearly
+        - [x] display the most popular genres
     - [ ] ratings file (*to be decided*)
     - [ ] users file (*to be decided*)
 - [ ] Analyse files together (*to be decided*)
