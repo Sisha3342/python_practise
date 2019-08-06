@@ -6,9 +6,9 @@
     - [x] movies file (**movies_stats folder**)
         - [x] display the amount of films yearly
         - [x] display the most popular genres
-    - [ ] ratings file (**users_stats folder**)
-		- [ ] display genders relation
-		- [ ] display occupations relation
-		- [ ] display ages relation
+    - [x] ratings file (**users_stats folder**)
+		- [x] display genders relation
+		- [x] display occupations relation
+		- [x] display ages relation
     - [ ] users file (*to be decided*)
 - [ ] Analyse files together (*to be decided*)
