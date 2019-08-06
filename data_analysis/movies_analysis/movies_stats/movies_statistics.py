@@ -15,5 +15,5 @@ if __name__ == "__main__":
     axes[1].set_ylabel('films')
     axes[1].set_xlabel('genre')
 
-    plt.savefig('movies_stats/movies_stats.png')
+    plt.savefig('movies_stats.png')
     plt.show()
