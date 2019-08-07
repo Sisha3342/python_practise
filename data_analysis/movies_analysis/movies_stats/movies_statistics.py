@@ -1,4 +1,4 @@
-from movies_dataframes import movies
+from movies_dataframes import movies_df
 import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
@@ -6,9 +6,9 @@ if __name__ == "__main__":
 
     axes[0].set_ylabel('films')
     axes[0].set_title('films yearly')
-    movies_yearly = movies.groupby('Year').size().plot(ax=axes[0])
+    movies_yearly = movies_df.groupby('Year').size().plot(ax=axes[0])
 
-    genres_list = movies.Genre.str.split('|').sum()
+    genres_list = movies_df.Genre.str.split('|').sum()
     axes[1].hist(genres_list, 18, facecolor='blue', alpha=0.5, rwidth=2)
     axes[1].tick_params(axis='x', labelrotation=90)
     axes[1].set_title('genres frequency')

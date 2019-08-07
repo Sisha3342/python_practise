@@ -1,10 +1,10 @@
-from movies_dataframes import users
+from movies_dataframes import users_df
 import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
-    occupations_freq = users.groupby('Occupation').size()
-    genders_freq = users.groupby('Gender').size()
-    ages_freq = users.groupby('Age').size()
+    occupations_freq = users_df.groupby('Occupation').size()
+    genders_freq = users_df.groupby('Gender').size()
+    ages_freq = users_df.groupby('Age').size()
     ages_freq = ages_freq[-1:].append(ages_freq[:-1])
 
     fig, axs = plt.subplots(2, 1, figsize=(5, 10))
