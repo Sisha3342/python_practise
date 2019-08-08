@@ -12,6 +12,6 @@
 		- [x] display ages relation
 - [x] Analyze movies/ratings files together (**movies_extended** folder)
     - [x] Create a **movies_extended.csv** file (based on movies_df) with the amount of reviews and *min/average/max* ratings of each film
-- [ ] Analyze users/ratings files together (**users_extended** folder)
-    - [ ] Create a **users_extended.csv** file (based on users_df) each user's amount of reviews, average rating
+- [x] Analyze users/ratings files together (**users_extended** folder)
+    - [x] Create a **users_extended.csv** file (based on users_df) each user's amount of reviews, *min/average/max* rating
  - [ ] Analyze all **movies_extended.csv** and **users_extended.csv** files together (*to be decided*) 
