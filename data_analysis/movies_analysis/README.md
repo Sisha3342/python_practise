@@ -14,4 +14,7 @@
     - [x] Create a **movies_extended.csv** file (based on movies_df) with the amount of reviews and *min/average/max* ratings of each film
 - [x] Analyze users/ratings files together (**users_extended** folder)
     - [x] Create a **users_extended.csv** file (based on users_df) each user's amount of reviews, *min/average/max* rating
- - [ ] Analyze all **movies_extended.csv** and **users_extended.csv** files together (*to be decided*) 
+ - [ ] Analyze movies_df, users_df and ratings_df together (**users_favourites** folder)
+    - [ ] find each user's favourite film (user's review with the highest rating)
+    - [ ] find each users favourite genres (based on amount of reviews on each genre)
+    - [ ] save to users_favourites.csv file
