@@ -6,7 +6,7 @@ Types of models, from which i will choose: **LinearRegression, PolynomialRegress
 
 ## Documentation
 This will be the first project where i will try to write kind of documentation. It will include: 
-1) **Filling missing values** in DataFrame i will get from dataset. With the help of data analysis i will choose, which way of filling each column is the best
+1) **Filling missing values** and **Features projection** in DataFrame i will get from dataset.
 2) Comparing **models accuracy**. Here i will experiment with types of models and their parameters. Also i will try to attach some graphs and diagrams
 
 I guess that during completing the task the list of themes in documentation will increase.
