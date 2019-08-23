@@ -29,4 +29,4 @@ if __name__ == "__main__":
     titanic = pd.DataFrame(vec.fit_transform(titanic.to_dict('records')),
                            columns=vec.get_feature_names())
 
-    titanic.to_csv('titanic.csv')
+    titanic.to_csv('titanic.csv', index=False)
