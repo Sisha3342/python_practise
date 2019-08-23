@@ -2,7 +2,7 @@
 ## Task
 I will use **titanic dataset** (from *seaborn* module) and *sklearn* module for machine learning. The task is to make a model which will predict if the person is dead/alive.
 
-Types of models, from which i will choose: **LinearRegression, PolynomialRegression, GaussianNB, PolynomialNB, SVC** (support vectors classification)
+Types of models, from which i will choose: **GaussianNB, SVC** (support vectors classification)
 
 ## Documentation
 This will be the first project where i will try to write kind of documentation. It will include: 
