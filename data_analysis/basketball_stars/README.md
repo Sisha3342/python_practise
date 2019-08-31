@@ -9,10 +9,10 @@ players performance and compare them with each other.
 Let's analyze each player's statistics and decide, who is the best!
 
 ### Salaries (*salaries.csv*)
-- [ ] Show each player's total, average salary
+- [x] Show each player's total, average salary
 - [ ] Compare player's salary in different teams
 - [ ] Find each player's max, min salary during one season
-###### Note
+#### Note
 Of course, all these players played in different time. It will be good to analyze their performance in seasons, during
 which they played together. This will minimize the influence of seasons. But, for example, Michael Jordan ended his 
 career before Lebron James started playing in 
