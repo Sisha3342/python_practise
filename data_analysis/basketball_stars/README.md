@@ -18,4 +18,12 @@ which they played together. This will minimize the influence of seasons. But, fo
 career before Lebron James started playing in NBA. Even without looking on dataset it is easy to predict, that Lebron's 
 average salary is higher than Michael's (because after Jordan's career salaries increased). Keep in mind this fact 
 while looking on the pictures with players information.
-### To be decided...
+### Allstars matches (*allstars.csv*)
+- [ ] Matches count
+- [ ] Positions played
+- [ ] Minutes played, goals, goal percentage
+- [ ] 2-points, 3-points and free goals (with accuracy)
+- [ ] Offensive / defensive rebounds
+- [ ] Assists, blocks
+- [ ] Steals, turnovers
+- [ ] Points got
