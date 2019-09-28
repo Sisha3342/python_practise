@@ -20,4 +20,17 @@ class SingleDivision:
 
     @staticmethod
     def get_reversed_matrix(matrix: np.ndarray):
-        pass
+        order = matrix.shape[0]
+        matrix_extended = np.hstack([matrix, np.eye(order)])
+
+        for i in range(order):
+            matrix_extended[i] /= matrix_extended[i, i]
+
+            for j in range(i):
+                matrix_extended[j, i:] -= matrix_extended[j, i] * matrix_extended[i, i:]
+
+            for j in range(i + 1, order):
+                matrix_extended[j, i:] -= matrix_extended[j, i] * matrix_extended[i, i:]
+
+        return np.hsplit(matrix_extended, 2)[-1]
+
