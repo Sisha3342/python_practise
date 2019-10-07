@@ -3,6 +3,9 @@ import numpy as np
 
 if __name__ == "__main__":
     test_matrix = np.array([[1, 2, 3],
-                            [4, 5, 6],
-                            [1, 1, 1]])
-    square_root = SquareRootMethod(test_matrix)
+                            [2, 5, 6],
+                            [3, 6, 1]])
+    a = np.array([1, 2, 3])
+    s, d = SquareRootMethod.get_matrix_decomposition(test_matrix)
+
+    print(np.matmul(np.matmul(s.T, np.diag(d)), s))
