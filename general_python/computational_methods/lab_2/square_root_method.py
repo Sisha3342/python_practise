@@ -23,8 +23,7 @@ class SquareRootMethod:
         return s_matrix, d_vector
 
     @staticmethod
-    def get_equation_solution(systems_matrix: np.ndarray,
-                              free_elements_vector: np.ndarray):
+    def get_equation_solution(systems_matrix: np.ndarray, free_vector: np.ndarray):
         pass
 
     @staticmethod
