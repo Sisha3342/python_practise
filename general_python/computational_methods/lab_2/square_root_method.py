@@ -2,7 +2,6 @@ import numpy as np
 
 
 class SquareRootMethod:
-
     @staticmethod
     def get_matrix_decomposition(matrix: np.ndarray):
         order = matrix.shape[0]
@@ -28,8 +27,6 @@ class SquareRootMethod:
 
     @staticmethod
     def get_determinant(matrix: np.ndarray):
-        pass
+        s, d = SquareRootMethod.get_matrix_decomposition(matrix)
 
-    @staticmethod
-    def get_reversed_matrix(matrix: np.ndarray):
-        pass
+        return np.prod(s.diagonal() ** 2) * np.prod(d)

@@ -8,4 +8,4 @@ if __name__ == "__main__":
     a = np.array([1, 2, 3])
     s, d = SquareRootMethod.get_matrix_decomposition(test_matrix)
 
-    print(np.matmul(np.matmul(s.T, np.diag(d)), s))
+    print(SquareRootMethod.get_determinant(test_matrix))
