@@ -4,28 +4,35 @@ import numpy as np
 class SingleDivision:
 
     @staticmethod
-    def get_equation_solution(matrix: np.ndarray, f_vector: np.ndarray):
-        matrix_copy = matrix.copy()
-        f_vector_copy = f_vector.copy()
-        order = matrix_copy.shape[0]
+    def __apply_straight_way(matrix: np.ndarray, f_vector: np.ndarray):
+        extended_matrix = np.hstack((matrix, f_vector))
+        order = extended_matrix.shape[0]
 
-        # straight way
         for i in range(order):
-            f_vector_copy[i] /= matrix_copy[i, i]
-            matrix_copy[i] /= matrix_copy[i, i]
+            extended_matrix[i] /= extended_matrix[i, i]
 
             for j in range(i + 1, order):
-                f_vector_copy[j] -= matrix_copy[j, i] * f_vector_copy[i]
-                matrix_copy[j, i:] -= matrix_copy[j, i] * matrix_copy[i, i:]
+                extended_matrix[j, i:] -= extended_matrix[j, i] * extended_matrix[i, i:]
 
-        # reversed way
-        roots = np.array([f_vector_copy[-1]])
+        return extended_matrix
 
-        for i in range(order - 2, -1, -1):
-            roots = np.insert(roots, 0, f_vector_copy[i] -
-                              np.sum(roots * matrix_copy[i, i + 1:]))
+    @staticmethod
+    def __apply_reversed_way(matrix: np.ndarray, f_vector: np.ndarray):
+        roots = np.array([])
+        order = matrix.shape[0]
+
+        for i in range(order - 1, -1, -1):
+            roots = np.insert(roots, 0, f_vector[i] -
+                              np.sum(roots * matrix[i, i + 1:]))
 
         return roots
+
+    @staticmethod
+    def get_equation_solution(matrix: np.ndarray, f_vector: np.ndarray):
+        extended_matrix = SingleDivision.__apply_straight_way(matrix, f_vector)
+
+        return SingleDivision.__apply_reversed_way(extended_matrix[:, :-1],
+                                                   extended_matrix[:, -1])
 
     @staticmethod
     def get_determinant(matrix: np.ndarray):
@@ -45,22 +52,14 @@ class SingleDivision:
     @staticmethod
     def get_reversed_matrix(matrix: np.ndarray):
         order = matrix.shape[0]
-        matrix_extended = np.hstack([matrix, np.eye(order)])
-
-        # straight way
-        for i in range(order):
-            matrix_extended[i] /= matrix_extended[i, i]
-
-            for j in range(i + 1, order):
-                matrix_extended[j, i:] -= matrix_extended[j, i] * matrix_extended[i, i:]
+        extended_matrix = SingleDivision.__apply_straight_way(matrix, np.eye(order))
 
         # reversed way
-        reversed_ = np.array(matrix_extended[-1, order:])
+        reversed_ = np.empty((order, order), np.float)
 
-        for i in range(order - 2, -1, -1):
-            reversed_ = np.vstack((matrix_extended[i, order:] -
-                                   np.sum(matrix_extended[i, i+1:order][:, np.newaxis] *
-                                          reversed_, axis=0), reversed_))
+        for i in range(order):
+            reversed_[:, i] = SingleDivision.__apply_reversed_way(extended_matrix[:, :order],
+                                                                  extended_matrix[:, order+i])
 
         return reversed_
 
