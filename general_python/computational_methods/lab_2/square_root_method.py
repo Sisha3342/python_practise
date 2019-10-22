@@ -35,6 +35,7 @@ class SquareRootMethod:
         for i in range(order):
             y = np.insert(y, i, (free_vector[i] - np.sum(y[:i] * s[:i, i])) / s[i, i])
 
+
         x = np.array([])
         for i in range(order - 1, -1, -1):
             x = np.insert(x, 0, (y[i] - np.sum(s[i, i+1:] * d[i] * x))
