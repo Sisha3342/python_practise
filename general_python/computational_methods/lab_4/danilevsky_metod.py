@@ -34,8 +34,13 @@ class DanilevskyMethod:
 
     @staticmethod
     def get_eigenvalues(frobenius_matrix: np.ndarray):
-        pass
+        return np.roots(np.concatenate([[1], -frobenius_matrix[0, :]]))
 
     @staticmethod
-    def get_eigenvectors(frobenius_matrix: np.ndarray, eigenvalues: np.ndarray):
-        pass
+    def get_eigenvectors(eigenvalues: np.ndarray, convers_matrix: np.ndarray):
+        eigenvectors = np.ones(eigenvalues.shape[0])
+        for i in range(1, eigenvalues.shape[0]):
+            eigenvectors = np.vstack([eigenvalues ** i, eigenvectors])
+
+        return np.matmul(convers_matrix, eigenvectors)
+

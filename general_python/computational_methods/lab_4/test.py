@@ -8,5 +8,4 @@ if __name__ == "__main__":
                             [2.21, 2.45, 1.69, 6.99]])
 
     tup = DM.get_frobenius_and_conversion(test_matrix)
-    print(tup.conversion_matrix)
-
+    values = DM.get_eigenvalues(tup.frobenius_matrix)
